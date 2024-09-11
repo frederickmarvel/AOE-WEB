@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AOE | Homepage</title>
+      <!--font awesome-->
+    <script src="https://kit.fontawesome.com/2b7bdad9a4.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap 5.0.2 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body style="
+    background-image: url('static/image/nsplsh_a5c3b4de990144a79ffecf482d2e4885~mv2.jpeg');">
+
+{% include 'navbar.html' %}
+
+<div id="content">
+    <section id="header" class="flex-vertical">
+        <h1 class="display-4 text-white">Reducing Carbon Emission</h1>
+        <h3 class="text-white">At Alpha One Energy, we are dedicated to providing top-notch waste management services
+            tailored to meet your specific needs. Our goal is to ensure a cleaner and more sustainable environment for
+            all.</h3>
+    </section>
+
+    <section id="brief-menu" class="flex-horizontal">
+        <div class="card scroll"
+             style="background-image: url('static/image/menu/57f6c3_e75621592d944634a8bdf33e8b6d4f09~mv2.jpeg');">
+            <div class="card-content">
+                <h2>About Us</h2>
+                <p class="card-content-animation">We are at the forefront of the UCO recycling industry, dedicated to
+                    sustainability and a circular economy. We convert UCO into valuable resources like biodiesel.</p>
+            </div>
+        </div>
+        <div class="card scroll"
+             style="background-image: url('static/image/menu/57f6c3_90e063fb5fd84a9f885a5ddaee1ac2a6~mv2.jpeg');">
+            <div class="card-content">
+                <h2>Guided by Our Vision</h2>
+                <p class="card-content-animation">Our vision is to eliminate environmental pollution caused by waste oil
+                    and reduce the health risks associated with used oil, striving for a cleaner and healthier
+                    future.</p>
+
+            </div>
+        </div>
+        <div class="card scroll"
+             style="background-image: url('static/image/menu/57f6c3_767d6c12ace346ef8719a5ee65c751cc~mv2.jpeg');">
+            <div class="card-content">
+                <h2>Product</h2>
+                <p class="card-content-animation">We deliver responsibly sourced, high-quality used cooking oil for
+                    biodiesel, aligning with our vision for a cleaner, greener world.</p>
+            </div>
+        </div>
+        <div class="card scroll"
+             style="background-image: url('static/image/menu/57f6c3_b6860ba08bbf432e9bfa7afba8b4b911~mv2.png');">
+            <div class="card-content">
+                <h2>Our Goals</h2>
+                <p class="card-content-animation">We aim to collaborate with strategic partners to reduce carbon
+                    emissions and create a cleaner environment, achieving a greener future together.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="brief-menu" class="flex-horizontal">
+        <div class="card1 scroll"
+             style="background-image: url('static/image/pngtree-stream-runs-through-a-lush-green-forest-picture-image_2471994 (1).jpg');">
+            <div class="card-content">
+                <h2>Sustainability</h2>
+                <p>We are committed to building a circular economy for Indonesia, ensuring resources are reused and
+                    recycled to minimize waste and maximize sustainability.</p>
+                <a href="{{url_for('sustainability')}}">
+                    <button class="card-button">Learn more</button>
+                </a>
+            </div>
+        </div>
+        <div class="card1 scroll"
+             style="background-image: url('static/image/SEEK - Meeting_ Pengertian, Jenis, Fungsi, dan Tujuannya di Dunia Kerja - Cover image.jpg');">
+            <div class="card-content">
+                <h2>Join Our Team</h2>
+                <p>We are committed to building a circular economy for Indonesia, ensuring resources are reused and
+                    recycled to minimize waste and maximize sustainability.</p>
+                <a href="{{url_for('services')}}">
+                    <button class="card-button">Learn More</button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    {% include 'footer.html' %}
+
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const content = document.querySelector('#content');
+    const elements = document.querySelectorAll('#content .scroll');
+
+    function handleScroll() {
+        const contentRect = content.getBoundingClientRect();
+        const contentCenter = contentRect.top + contentRect.height / 2;
+
+        elements.forEach(element => {
+            const elementRect = element.getBoundingClientRect();
+            const elementCenter = elementRect.top + elementRect.height / 2;
+
+            if (Math.abs(elementCenter - contentCenter) < 200) { // Adjust threshold as needed
+                element.querySelector('.card-content-animation').style.opacity = 1;
+            }
+            else{
+            element.querySelector('.card-content-animation').style.opacity = 0;
+            }
+        });
+    }
+
+    function checkScreenSize() {
+        const screenWidth = window.innerWidth;
+
+        // iPhone and iPad screen sizes
+        if (screenWidth <= 768) { // Adjust the max width as needed for different iPad models
+            content.addEventListener('scroll', handleScroll);
+        } else {
+            content.removeEventListener('scroll', handleScroll);
+        }
+    }
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+});
+
+    const cards = document.querySelectorAll('.card');
+
+cards.forEach(card => {
+    card.addEventListener('mouseover', () => {
+        card.querySelector('.card-content-animation').style.opacity = 1;
+    });
+
+    card.addEventListener('mouseout', () => {
+        card.querySelector('.card-content-animation').style.opacity = 0;
+    });
+
+    card.addEventListener('click', () => {
+        card.querySelector('.card-content-animation').style.opacity = 1;
+    });
+});
+
+</script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,407 @@
+/* General Styles */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    overflow-y: hidden;
+    max-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+section {
+    padding: 0 5%;
+    background: black;
+}
+
+#content {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100vh;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+    font-family: "roboto"
+}
+
+/* Flexbox Utilities */
+.flex-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.flex-horizontal {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+/* Navbar Styles */
+nav {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Header Section */
+#header {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.35) 35%, rgba(0, 0, 0, 1) 100%);
+    height: 35vh;
+    text-align: center;
+    padding: 10% auto;
+    padding-bottom: 0;
+}
+
+/* Grid Container for About Us Section */
+.grid-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: 0;
+    padding: 20px;
+}
+
+.gd-1{
+   grid-template-rows: 400px 400px;
+   }
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    text-align: center;
+}
+
+.ul {
+    background-color: black;
+    color: white;
+    text-align: right;
+    min-height: 400px;
+}
+
+.ur {
+    padding: 0;
+}
+
+.bl {
+    background-color: yellow;
+    text-align: right;
+    min-height: 400px;
+}
+
+.br {
+    background-color: blue;
+    color: white;
+    text-align: left;
+    min-height: 400px;
+}
+
+.grid-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* border */
+
+/* Artistic border styles using vertex-border-box class */
+.vertex-border-box {
+    position: relative;
+    padding: 20px;
+    overflow: hidden; /* Ensure content doesn’t overflow the border */
+}
+
+/* Border styles for different grid items using vertex-border-box class */
+.vertex-border-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 5px solid transparent;
+    z-index: 0;
+}
+
+/* Artistic borders for specific classes */
+.ul.vertex-border-box, .ur.vertex-border-box, .bl.vertex-border-box, .br.vertex-border-box {
+    border-style: dashed;
+    border-color: #ff6347; /* Tomato color */
+}
+
+/* Ensure text content is above the border */
+h2, p {
+    position: relative;
+    z-index: 1;
+}
+
+/* Background colors for specific classes */
+.ul {
+    background-color: black;
+    color: white;
+    text-align: right;
+}
+
+.ur {
+    padding: 0;
+}
+
+.bl {
+    background-color: yellow;
+    text-align: right;
+}
+
+.br {
+    background-color: blue;
+    color: white;
+    text-align: left;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Card Styles */
+.card, .card1, .card2, .card3 {
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    height: 50vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card, .card3 {
+    width: 22.5%;
+    border: none;
+}
+
+.card1 {
+    width: 45%;
+}
+
+.card2 {
+    width: 30%;
+}
+
+.card-content {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 2.5%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-content-animation {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+
+/* Button Styles */
+.card-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card-button:hover {
+    background-color: #0056b3;
+}
+
+/*contact us CP */
+.contact-person-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height:100%;
+    gap: 20px;
+}
+
+.contact-person {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.contact-person h4 {
+    margin: 0 0 10px;
+}
+
+.contact-person a {
+    color: #28a745;
+    text-decoration: none;
+}
+
+.contact-person a i {
+    margin-right: 8px;
+}
+
+.contact-list {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.contact-list .contact-person-grid {
+    width: 100%;
+}
+
+
+/* Footer Styles */
+footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Styles */
+@media (min-width:769px){
+    .card:hover,
+    .card1:hover,
+    .card2:hover,
+    .card3:hover {
+        transform: scale(1.05)
+    }
+
+
+    .card:hover .card-content-animation,
+    .card1:hover .card-content-animation,
+    .card2:hover .card-content-animation,
+    .card3:hover .card-content-animation {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    #header {
+        padding: 30px 10px;
+    }
+
+    .flex-horizontal {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .card, .card1, .card2, .card3 {
+        height: 400px;
+        width: 100%;
+    }
+
+    .grid-container {
+        grid-template-columns: 100%;
+    }
+
+    .ur {
+        display: none;
+    }
+
+    .ul, .bl, .br {
+        text-align: center;
+        background-color: black;
+        color: white;
+        height: auto;
+        min-height:0;
+    }
+    .grid-item{
+        padding:0;
+        margin-top:10px;
+    }
+    .gd-1{
+    display:flex;
+    flex-direction:column;
+    }
+
+    .vertex-border-box {
+        position: relative;
+        padding: 20px;
+        background: none; /* Light background for the box */
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+    }
+
+    .vertex-border-box::before,
+    .vertex-border-box::after {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        z-index: 0;
+    }
+
+    .vertex-border-box::before {
+        top: -10px;
+        left: -10px;
+        width: calc(100% + 20px);
+        height: calc(100% + 20px);
+        border-width: 10px 0 0 10px;
+        border-color: #f39c12 transparent transparent transparent; /* Bright yellow/orange */
+        border-radius: 12px;
+        transform: rotate(-3deg);
+    }
+
+    .vertex-border-box::after {
+        bottom: -10px;
+        right: -10px;
+        width: calc(100% + 20px);
+        height: calc(100% + 20px);
+        border-width: 10px 10px 0 0;
+        border-color: transparent #e74c3c transparent transparent; /* Bright red */
+        border-radius: 12px;
+        transform: rotate(3deg);
+    }
+
+    .contact-person-grid {
+        grid-template-columns: 100%;
+    }
+
+    .gd-1 .grid-item p, .card-content-animation{
+        text-align: justify;
+    }
+}

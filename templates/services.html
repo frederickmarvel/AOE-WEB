@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AOE | Services</title>
+      <!--font awesome-->
+    <script src="https://kit.fontawesome.com/2b7bdad9a4.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap 5.0.2 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <style>
+    .map-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .map-item {
+        flex: 1 1 48%;
+        margin: 0 10px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    @media (max-width: 768px) {
+        .map-item {
+            width:100%
+            padding:20px;
+        }
+    }
+</style>
+
+</head>
+<body style="
+    background-image: url('static/image/WhatsApp Image 2024-08-28 at 11.47.34 PM.jpeg');">
+
+{% include 'navbar.html' %}
+
+<div id="content">
+    <section id="header" class="flex-vertical">
+        <h1 class="display-4 text-white">Our Services</h1>
+    </section>
+    <section id="ourservices" class="grid-container">
+
+        <div class="grid-item ul">
+            <h2>We Buy Your Kitchen Waste</h2>
+            <p>We are committed to reducing carbon emissions and water and soil pollution while enhancing the circular
+                economy by purchasing used cooking oil from SMEs, restaurants, hotels, factories, and households at
+                competitive prices.</p>
+        </div>
+        <div class="grid-item ur" style="padding:0;">
+            <img src="static/image/Screenshot 2024-08-28 at 23.52.10.png" style="height:100%; width:100%;">
+        </div>
+    </section>
+
+    <section id="contactus" class="ftco-section" style="color:White; padding:5%;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="contact-wrap w-100 p-md-5 p-4">
+                    <h3 class="mb-4">Join Us!</h3>
+                    <div id="form-message-warning" class="mb-4"></div>
+                    <div id="form-message-success" class="mb-4">
+                        {% if msg_sent == 1 %}
+                        Something went wrong, please try again!
+                        {% elif msg_sent == 2 %}
+                        Your message was sent, thank you!
+                        {% else %}
+                        Please write your message here!
+                        {% endif %}
+                    </div>
+
+                    <form action="{{url_for('form_entry')}}" method="POST" id="contactForm"
+                          name="contactForm" class="contactForm" style="padding:5% 0;">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="label" for="name">Full Name</label>
+                                    <br>
+                                    <input type="text" class="form-control" name="name" id="name"
+                                           placeholder="Name" minlength="10" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="label" for="email">Email Address</label>
+                                    <br>
+                                    <input type="email" class="form-control" name="email" id="email"
+                                           placeholder="Email" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="label" for="company">Company</label>
+                                    <br>
+                                    <input type="text" class="form-control" name="company" id="company"
+                                           placeholder="Company" minlength="0" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="label" for="company">Location</label>
+                                    <br>
+                                    <input type="text" class="form-control" name="location" id="location"
+                                           placeholder="Location" minlength="5" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="label" for="message">Message</label>
+                                    <br>
+                                    <textarea name="message" class="form-control" id="message" cols="30"
+                                              rows="4" placeholder="Message" minlength="10"
+                                              required></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="submit" value="Send" class="card-button">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-6 contact-list">
+                <div class="contact-person-grid">
+                    <div class="contact-person">
+                        <h4>John Doe</h4>
+                        <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i> +1 234 567 890</a>
+                        <br>
+                        <a href="mailto:johndoe@example.com"><i class="fas fa-envelope"></i> johndoe@example.com</a>
+                    </div>
+                    <div class="contact-person">
+                        <h4>Jane Smith</h4>
+                        <a href="https://wa.me/0987654321" target="_blank"><i class="fab fa-whatsapp"></i> +0 987 654 321</a>
+                        <br>
+                        <a href="mailto:janesmith@example.com"><i class="fas fa-envelope"></i> janesmith@example.com</a>
+                    </div>
+                    <div class="contact-person">
+                        <h4>Michael Brown</h4>
+                        <a href="httsps://wa.me/1122334455" target="_blank"><i class="fab fa-whatsapp"></i> +1 122 334 455</a>
+                        <br>
+                        <a href="mailto:michaelbrown@example.com"><i class="fas fa-envelope"></i> michaelbrown@example.com</a>
+                    </div>
+                    <div class="contact-person">
+                        <h4>Emily Davis</h4>
+                        <a href="https://wa.me/5566778899" target="_blank"><i class="fab fa-whatsapp"></i> +5 567 788 899</a>
+                        <br>
+                        <a href="mailto:emilydavis@example.com"><i class="fas fa-envelope"></i> emilydavis@example.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <section id="maps" class="flexbox-horizontal">
+    {% include 'map.html' %}
+    </section>
+{% include 'footer.html' %}
+</div>
+
+<script>
+    const cards = document.querySelectorAll('.card3');
+
+cards.forEach(card => {
+    card.addEventListener('mouseover', () => {
+        card.querySelector('.card-content-animation').style.opacity = 1;
+    });
+
+    card.addEventListener('mouseout', () => {
+        card.querySelector('.card-content-animation').style.opacity = 0;
+    });
+
+    card.addEventListener('click', () => {
+        card.querySelector('.card-content-animation').style.opacity = 1;
+    });
+});
+</script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+</body>
+</html>
