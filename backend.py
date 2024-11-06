@@ -4,7 +4,7 @@ app.secret_key = "AN!@#J#Y"
 
 @app.route('/')
 def homepage():
-    return make_response(render_template("home1.html")
+    return make_response(render_template("home1.html"))
 
 @app.route('/aboutus')
 def aboutus():
@@ -34,5 +34,5 @@ def form_entry():
 
 
 if __name__ == "__main__":
-    app.run(host='192.168.1.8', port=5000, debug=True, threaded=False)
+    app.run(host='0.0.0.0', port=5001, debug=True, threaded=False)
 
