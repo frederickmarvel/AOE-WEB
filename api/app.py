@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, make_response
+import os
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="templates")
 app.secret_key = "AN!@#J#Y"
 
 @app.route('/')
